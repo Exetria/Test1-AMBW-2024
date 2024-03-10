@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit Gym</title>
+
+    <link rel="manifest" href="/manifest.json">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="src/images/black rabbit.png" type="image/x-icon">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .btn {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 3vw;
+            font-weight: bold;
+            font-family: "Lexend", sans-serif;
+        }
+
+        .description{
+            margin-left: 2vw;
+            padding-bottom: 4vh;
+        }
+
+        #navbar-logo {
+            margin-right: 1vw;
+            max-width: 100%;
+            height: auto
+        }
+
+        #main-image {
+            height: 40vh;
+            width: 40vw;
+        }
+
+        #about-us {
+            font-size: 1.5vw;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+        <div class="container-fluid d-flex" style="background-color: transparent;">
+            <!-- left side -->
+            <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                <img src="src/images/hollow rabbit.png" width="26" height="26" id="navbar-logo" href="#">
+                <a class="navbar-brand ml-10" href="#">Rabbit Gym</a>
+            </div>
+
+            <!-- right side -->
+            <div class="d-flex align-items-right">
+                <button class="btn btn-light">Home</button>
+                <button class="btn btn-light">Events</button>
+                <button class="btn btn-light">Products</button>
+                <button class="btn btn-light">Blog</button>
+                <button class="btn btn-light">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN IMAGE -->
+    <div class="center-content">
+        <div class="d-flex justify-content-center">
+            <img src="src/images/wp3.jpg" id="main-image">
+        </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="description">
+        <div class="d-flex justify-content-center subtitle" style="margin-top: 3vw;">
+            SQUAT
+        </div>
+
+        <div class="d-flex justify-content-start" id="about-us">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum. Steps:
+        </div>
+
+        <div class="d-flex justify-content-start" id="about-us" style="margin-top: 1vw;">
+            <ol>
+                <li>1. berdiri</li>
+                <li>2. duduk</li>
+                <li>3. berdiri</li>
+                <li>4. duduk</li>
+                <li>5. berdiri</li>
+            </ol>
+        </div>
+
+
+        <div class="d-flex justify-content-center subtitle" style="margin-top: 3vw;">
+            TUTORIAL VIDEO
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <iframe width="999" height="562" src="https://www.youtube.com/embed/tG0El8q-pO8" title="New Hampshire - Super-Illinois Is Insanity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <div>
+        &nbsp;
+    </div>
+</body>
+
+</html>

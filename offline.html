@@ -13,16 +13,44 @@
     <link rel="shortcut icon" href="src/images/black rabbit.png" type="image/x-icon">
 
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgb(213, 213, 213);
         }
+
         .center-content {
             text-align: center;
+        }
+
+        #rabbit-image {
+            height: 40vh;
+            width: auto;
+        }
+
+        #description {
+            font-size: 2vw;
+            font-family: "Lexend", sans-serif;
+        }
+
+        #link-to-home {
+            font-size: 1.8vw;
+            font-family: "Lexend", sans-serif;
+        }
+
+        @media screen and (max-width: 434px) {
+            #description {
+            font-size: 2.5vw;
+            font-family: "Lexend", sans-serif;
+        }
+
+        #link-to-home {
+            font-size: 2vw;
+            font-family: "Lexend", sans-serif;
+        }
         }
     </style>
 </head>
@@ -30,16 +58,15 @@
 <body>
     <div class="center-content">
         <div class="d-flex justify-content-center">
-            <img src="src/images/confused rabit.png">
+            <img src="src/images/confused rabbit.png" id="rabbit-image">
         </div>
-        <div>
+        <div id="description">
             It seems that you are currently offline and haven't opened this page when online
         </div>
-        <a href="index.html">
-            Let's hop back to Home
+        <a href="index.html" id="link-to-home">
+            Let's hop back Home
         </a>
     </div>
 </body>
-</html>
 
 </html>

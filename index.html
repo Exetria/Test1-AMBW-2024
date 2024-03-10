@@ -4,17 +4,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rabbit Gym</title>
 
     <link rel="manifest" href="/manifest.json">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="src/images/black rabbit.png" type="image/x-icon">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #841414;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 4vw;
+            font-weight: bold;
+            font-family: "Lexend", sans-serif;
+        }
+
+        .card {
+            padding: 1vw;
+            margin: 0.5vw;
+            height: 20vw;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+        .card-text {
+            position: absolute;
+            bottom: 1.2vw;
+            left: 1.2vw;
+            color: #fff;
+            font-size: 2vw;
+            font-weight: bold;
+            font-family: "Lexend", sans-serif;
+        }
+
+        .centered-image {
+            object-fit: fill;
+            height: 100%;
+            width: 100%;
+            display: block;
+            margin: auto;
+        }
+
+        #main-image {
+            text-align: center;
+            font-size: 5vw;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-family: "Lexend", sans-serif;
+            height: 30vw;
+            background-image: url('src/images/wp3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            place-items: center;
+        }
+
+        #navbar-logo {
+            margin-right: 1vw;
+            max-width: 100%;
+            height: auto
+        }
+
+        #card-section {
+            margin-top: 3vw;
+            margin-bottom: 5vw;
+        }
+
+        #about-us {
+            margin-left: 7vw;
+            margin-right: 7vw;
+            font-size: 2vw;
+        }
+
+        @media screen and (max-width: 767px) {
+            .col-md-4 {
+                flex: 0 0 100%;
+            }
+
+            .card {
+                height: auto;
+            }
+
+            #card-section {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 3vw;
+                padding-bottom: 10vw;
+            }
+        }
+
+        @media screen and (max-width: 374px) {
+            .btn {
+                font-size: 4vw !important;
+                width: 18.5vw !important;
+                padding-top: 0.175rem !important;
+                padding-right: 0.2rem !important;
+                padding-bottom: 0.175rem !important;
+                padding-left: 0.2rem !important;
+            }
+
+            #about-us {
+                font-size: 3.5vw;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <h1>HALOOOOOO</h1>
+    <!-- HEADER -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #000">
+        <div class="container-fluid d-flex" style="background-color: #000 ">
+            <!-- left side -->
+            <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                <img src="src/images/hollow rabbit.png" width="26" height="26" id="navbar-logo">
+                <a class="navbar-brand ml-10" href="#">Rabbit Gym</a>
+            </div>
+
+            <!-- right side -->
+            <div class="d-flex align-items-right">
+                <button class="btn btn-light">Home</button>
+                <button class="btn btn-light">Events</button>
+                <button class="btn btn-light">Products</button>
+                <button class="btn btn-light">Blog</button>
+                <button class="btn btn-light">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- TITLE -->
+    <div class="d-flex justify-content-center" id="main-image">
+        READY TO HOP IN?
     </div>
+
+    <!-- ABOUT US SUB TITLE -->
+    <div class="mx-auto">
+        <div class="d-flex justify-content-center subtitle" style="margin-top: 3vw;">
+            ABOUT US
+        </div>
+
+        <div class="d-flex justify-content-center" id="about-us">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+        </div>
+    </div>
+
+    <!-- TRAININGS SUB TITLE -->
+    <div class="d-flex justify-content-center subtitle" style="margin-top: 3vw;">
+        OUR TRAININGS
+    </div>
+
+    <!-- CARD SECTION -->
+    <div class="container-fluid row justify-content-center" id="card-section">
+        <!-- row 1 -->
+        <a href="offline.html" class="col-md-4 col-sm-12">
+            <div class="card">
+                <div class="card-text">SQUAT</div>
+                <img src="src/images/wp1.jpg" class="card-img-top img-fluid centered-image">
+            </div>
+        </a>
+
+        <a href="offline.html" class="col-md-4 col-sm-12">
+            <div class="card">
+                <div class="card-text">SQUAT</div>
+                <img src="src/images/wp2.jpg" class="card-img-top img-fluid centered-image">
+            </div>
+        </a>
+
+        <a href="offline.html" class="col-md-4 col-sm-12">
+            <div class="card">
+                <div class="card-text">SQUAT</div>
+                <img src="src/images/wp3.jpg" class="card-img-top img-fluid centered-image">
+            </div>
+        </a>
+    </div>
+
 </body>
 
 </html>

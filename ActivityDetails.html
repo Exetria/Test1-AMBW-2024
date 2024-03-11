@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="src/images/black rabbit.png" type="image/x-icon">
+    <link rel="shortcut icon" href="src/images/icons/icon-512x512.png" type="image/x-icon">
 
     <style>
         body,
@@ -30,9 +30,13 @@
             font-family: "Lexend", sans-serif;
         }
 
-        .description{
+        .description {
             margin-left: 2vw;
             padding-bottom: 4vh;
+        }
+
+        .about-us {
+            font-size: 1.5vw;
         }
 
         #navbar-logo {
@@ -41,13 +45,36 @@
             height: auto
         }
 
-        #main-image {
-            height: 40vh;
-            width: 40vw;
+        #mainimage {
+            height: 30vh;
+            width: auto;
         }
 
-        #about-us {
-            font-size: 1.5vw;
+        #youtubevideo {
+            height: 100vh;
+            width: 80vw;
+        }
+
+        @media screen and (max-width: 768px) {
+            #youtube-video {
+                height: 30vh;
+                width: 40vw;
+            }
+        }
+
+        @media screen and (max-width: 374px) {
+            .btn {
+                font-size: 4vw !important;
+                width: 18.5vw !important;
+                padding-top: 0.175rem !important;
+                padding-right: 0.2rem !important;
+                padding-bottom: 0.175rem !important;
+                padding-left: 0.2rem !important;
+            }
+
+            .about-us {
+                font-size: 3.5vw;
+            }
         }
     </style>
 </head>
@@ -59,12 +86,12 @@
             <!-- left side -->
             <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
                 <img src="src/images/hollow rabbit.png" width="26" height="26" id="navbar-logo" href="#">
-                <a class="navbar-brand ml-10" href="#">Rabbit Gym</a>
+                <a class="navbar-brand ml-10" href="Index.html">Rabbit Gym</a>
             </div>
 
             <!-- right side -->
             <div class="d-flex align-items-right">
-                <button class="btn btn-light">Home</button>
+                <button class="btn btn-light" onclick="toHome()">Home</button>
                 <button class="btn btn-light">Events</button>
                 <button class="btn btn-light">Products</button>
                 <button class="btn btn-light">Blog</button>
@@ -76,17 +103,17 @@
     <!-- MAIN IMAGE -->
     <div class="center-content">
         <div class="d-flex justify-content-center">
-            <img src="src/images/wp3.jpg" id="main-image">
+            <img src="" id="mainimage">
         </div>
     </div>
 
     <!-- DESCRIPTION -->
     <div class="description">
-        <div class="d-flex justify-content-center subtitle" style="margin-top: 3vw;">
-            SQUAT
+        <div class="d-flex justify-content-center subtitle" style="margin-top: 3vw;" id="activityname">
+            BENCH PRESS
         </div>
 
-        <div class="d-flex justify-content-start" id="about-us">
+        <div class="d-flex justify-content-start about-us" id="activitydesctiprion">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
@@ -94,13 +121,13 @@
             anim id est laborum. Steps:
         </div>
 
-        <div class="d-flex justify-content-start" id="about-us" style="margin-top: 1vw;">
+        <div class="d-flex justify-content-start about-us" style="margin-top: 1vw;" id="activitysteps">
             <ol>
-                <li>1. berdiri</li>
-                <li>2. duduk</li>
-                <li>3. berdiri</li>
-                <li>4. duduk</li>
-                <li>5. berdiri</li>
+                <li>berdiri</li>
+                <li>duduk</li>
+                <li>berdiri</li>
+                <li>duduk</li>
+                <li>berdiri</li>
             </ol>
         </div>
 
@@ -109,9 +136,19 @@
             TUTORIAL VIDEO
         </div>
 
-        <div class="d-flex justify-content-center">
-            <iframe width="999" height="562" src="https://www.youtube.com/embed/tG0El8q-pO8" title="New Hampshire - Super-Illinois Is Insanity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="d-flex justify-content-center" style="margin-top: 1vw;">
+            <iframe src="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen id="youtubevideo"></iframe>
         </div>
+    </div>
+
+
+    <div class="d-flex justify-content-center" style="margin-top: 3vw">
+        <button class="btn" onclick="toHome()"
+            style="text-align: center; font-size: 3vw; font-weight: bold; font-family: 'Lexend', sans-serif;">
+            Back to Home
+        </button>
     </div>
 
 
@@ -121,3 +158,41 @@
 </body>
 
 </html>
+
+<script src="/src/js/promise.js"></script>
+<script src="/src/js/fetch.js"></script>
+<script src="/src/js/idb.js"></script>
+<script src="/src/js/utility.js"></script>
+
+<script>
+    if ('indexedDB' in window) {
+        readAllData('posts')
+            .then(function (data) {
+                updateUI(data);
+            });
+    }
+
+    function readAllData(st) {
+        return dbPromise
+            .then(function (db) {
+                var tx = db.transaction(st, 'readonly');
+                var store = tx.objectStore(st);
+                return store.getAll();
+            });
+    }
+
+    function updateUI(data) {
+        var id = parseInt(window.location.href.substring(46));
+
+        mainimage.src = data[id].image;
+        activityname.textContent = data[id].name;
+        // activitydescription
+        // activitysteps
+        youtubevideo.src = data[id].video;
+    }
+
+    function toHome() {
+        window.location.href = "Index.html";
+    }
+
+</script>
